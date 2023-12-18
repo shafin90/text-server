@@ -49,7 +49,7 @@ async function run() {
     // Messaging section======================================================================================
 
     // Posting messages
-    app.post('/messages', async (req, res) => {
+    app.put('/messages', async (req, res) => {
       const { from, to, message } = req.body;
       const result = await messages.insertOne({ from, to, message });
       res.send(result);
