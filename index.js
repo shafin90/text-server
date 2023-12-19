@@ -32,14 +32,8 @@ async function run() {
       res.send(result);
     })
 
+ 
     // Posting user' data
-    app.post('/users', async (req, res) => {
-      const { email, name, img, password, number } = req.body;
-      const result = await userCollection.insertOne({ email, name, img, password, number });
-      res.send(result);
-    });
-
-    // Puting user' data
     app.post('/users', async (req, res) => {
       const { email, name, img, password, number } = req.body;
       const result = await userCollection.insertOne({ email, name, img, password, number });
@@ -49,7 +43,7 @@ async function run() {
     // Messaging section======================================================================================
 
     // Posting messages
-    app.put('/messages', async (req, res) => {
+    app.post('/messages', async (req, res) => {
       const { from, to, message } = req.body;
       const result = await messages.insertOne({ from, to, message });
       res.send(result);
