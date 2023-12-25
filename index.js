@@ -44,8 +44,8 @@ async function run() {
 
     // Posting messages
     app.post('/messages', async (req, res) => {
-      const { from, to, message, time } = req.body;
-      const result = await messages.insertOne({ from, to, message, time });
+      const { from, to, message, time, img } = req.body;
+      const result = await messages.insertOne({ from, to, message, time, img });
       console.log(result)
       res.send(result);
     });
